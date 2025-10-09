@@ -53,7 +53,7 @@ function Home() {
             humans perceive taste.
           </p>
           <a
-            href="/participate"
+            href="/FlavorCharterInfo/participate"
             style={{
               display: "inline-block",
               padding: "0.5rem 1rem",

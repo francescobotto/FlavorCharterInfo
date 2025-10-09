@@ -18,10 +18,10 @@ function Footer() {
           marginBottom: "0.5rem",
         }}
       >
-        <a href="/about" style={{ color: "#212529" }}>
+        <a href="/FlavorCharterInfo/about" style={{ color: "#212529" }}>
           About
         </a>
-        <a href="/participate" style={{ color: "#212529" }}>
+        <a href="/FlavorCharterInfo/participate" style={{ color: "#212529" }}>
           Participate
         </a>
         <a href="mailto:fbott1@uic.edu" style={{ color: "#212529" }}>
