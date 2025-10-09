@@ -23,7 +23,6 @@ function Participate() {
           style={{
             fontSize: "1.1rem",
             lineHeight: "1.6",
-            paddingLeft: "1rem",
           }}
         >
           <li>Open the app and sign the consent form</li>
@@ -72,7 +71,7 @@ function Participate() {
             Download for iOS
           </a>
           <a
-            href="mailto:fbott1@uic.edu"
+            href="https://uic.ca1.qualtrics.com/jfe/form/SV_eDx4CKcIXJMO3J4"
             style={{
               padding: "0.6rem 1.2rem",
               backgroundColor: "#A4C639",
