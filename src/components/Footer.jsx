@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Footer() {
   return (
     <footer
@@ -18,12 +20,12 @@ function Footer() {
           marginBottom: "0.5rem",
         }}
       >
-        <a href="/FlavorCharterInfo/about" style={{ color: "#212529" }}>
+        <Link to="/about" style={{ color: "#212529" }}>
           About
-        </a>
-        <a href="/FlavorCharterInfo/participate" style={{ color: "#212529" }}>
+        </Link>
+        <Link to="/participate" style={{ color: "#212529" }}>
           Participate
-        </a>
+        </Link>
         <a href="mailto:fbott1@uic.edu" style={{ color: "#212529" }}>
           Contact
         </a>

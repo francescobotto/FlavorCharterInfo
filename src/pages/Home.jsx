@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Progress from "../components/Progress";
 
 function Home() {
@@ -52,20 +53,13 @@ function Home() {
             Every participant helps us build a more complete picture of how
             humans perceive taste.
           </p>
-          <a
-            href="/FlavorCharterInfo/participate"
-            style={{
-              display: "inline-block",
-              padding: "0.5rem 1rem",
-              backgroundColor: "#D50032",
-              color: "#fff",
-              borderRadius: "4px",
-              textDecoration: "none",
-              fontWeight: "bold",
-            }}
+          <Link
+            to="/participate"
+            className="btn btn-danger"
+            style={{ fontWeight: "bold" }}
           >
             Participate
-          </a>
+          </Link>
         </div>
       </div>
     </div>
