@@ -13,7 +13,7 @@ function NavigationBar() {
       <Container>
         <Navbar.Brand as={Link} to="/">
           <img
-            src="./logoDark.png"
+            src="/FlavorCharterInfo/logoDark.png"
             alt="Logo"
             style={{ height: "40px", marginRight: "10px" }}
           />

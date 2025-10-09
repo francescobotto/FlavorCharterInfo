@@ -9,7 +9,7 @@ import Analysis from "./pages/Analysis";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/FlavorCharterInfo">
       <div className="app-container">
         <Navbar />
         <main className="main-content">

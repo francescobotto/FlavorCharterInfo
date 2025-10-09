@@ -98,22 +98,22 @@ function About() {
           }}
         >
           <img
-            src="./uic.png"
+            src="/FlavorCharterInfo/uic.png"
             alt="UIC"
             style={{ height: "60px", objectFit: "contain" }}
           />
           <img
-            src="./evl.png"
+            src="/FlavorCharterInfo/evl.png"
             alt="EVL"
             style={{ height: "60px", objectFit: "contain" }}
           />
           <img
-            src="./md_anderson.png"
+            src="/FlavorCharterInfo/md_anderson.png"
             alt="MD Anderson Cancer Center"
             style={{ height: "60px", objectFit: "contain" }}
           />
           <img
-            src="./iowa.png"
+            src="/FlavorCharterInfo/iowa.png"
             alt="University of Iowa"
             style={{ height: "60px", objectFit: "contain" }}
           />
