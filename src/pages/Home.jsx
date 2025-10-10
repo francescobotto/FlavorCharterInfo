@@ -24,13 +24,21 @@ function Home() {
         <p style={{ fontSize: "1.1rem", marginTop: "0.5rem" }}>
           Taste perception plays a crucial role in nutrition and quality of
           life. Around{" "}
-          <a href="https://my.clevelandclinic.org/health/diseases/22047-dysgeusia">
+          <a
+            href="https://my.clevelandclinic.org/health/diseases/22047-dysgeusia"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <strong>17%</strong>
           </a>{" "}
           of the US population experiences some form of taste disorder,
           including dysgeusia, and among Head and Neck Cancer patients
           undergoing chemotherapy or radiotherapy this number can reach{" "}
-          <a href="https://www.thegreenjournal.com/article/S0167-8140(21)00023-2/fulltext">
+          <a
+            href="https://www.thegreenjournal.com/article/S0167-8140(21)00023-2/fulltext"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <strong>51–100%</strong>
           </a>
           . These alterations can lead to reduced appetite, malnutrition, and

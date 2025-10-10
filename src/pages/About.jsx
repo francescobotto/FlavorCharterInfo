@@ -3,9 +3,8 @@ function About() {
     <div className="page" style={{ maxWidth: "900px", margin: "0 auto" }}>
       <h1 style={{ margin: 0 }}>About</h1>
       <p style={{ fontSize: "1.1rem", lineHeight: "1.6", marginTop: "2rem" }}>
-        This study is conducted by the Electronic Visualization Laboratory (EVL)
-        at the University of Illinois Chicago (UIC), under IRB Protocol
-        STUDY2025-0477.
+        This study is conducted by a team of researchers at the University of
+        Illinois Chicago (UIC), under IRB Protocol STUDY2025-0477.
       </p>
 
       <h3 style={{ marginTop: "2rem" }}>Research Team</h3>
@@ -13,7 +12,7 @@ function About() {
         <div style={{ marginTop: "0.5rem" }}>
           <strong>G. Elisabeta Marai</strong>
           <br />
-          <em>Department of Computer Science</em>
+          <em>Professor of Computer Science</em>
           <br />
           University of Illinois Chicago
           <br />
@@ -23,7 +22,7 @@ function About() {
         <div style={{ marginTop: "0.5rem" }}>
           <strong>Francesco Botto</strong>
           <br />
-          <em>Department of Computer Science</em>
+          <em>Graduate Student</em>
           <br />
           University of Illinois Chicago
           <br />

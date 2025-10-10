@@ -37,7 +37,7 @@ function Footer() {
         <p
           style={{ fontSize: "0.8rem", marginTop: "0.3rem", color: "#6c757d" }}
         >
-          A project by the Electronic Visualization Lab at UIC.
+          A project by the University of Illinois Chicago.
         </p>
       </div>
     </footer>

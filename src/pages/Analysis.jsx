@@ -70,7 +70,10 @@ function Analysis() {
         This section presents a snapshot of our ongoing research. We are
         currently collecting taste perception data from healthy individuals to
         build a baseline reference. Below are early aggregate results from
-        selected foods.
+        selected foods based on the subjects currently enrolled in the study
+        (see Home Page for the current count). Tables with the mean and stdev
+        results are below each graph. These results as well as more detailed
+        analyses will be updated as we enroll more subjects.
       </p>
 
       <div style={{ marginTop: "2rem" }}>
