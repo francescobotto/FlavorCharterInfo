@@ -4,59 +4,30 @@ function About() {
       <h1 style={{ margin: 0 }}>About</h1>
       <p style={{ fontSize: "1.1rem", lineHeight: "1.6", marginTop: "2rem" }}>
         This study is conducted by the Electronic Visualization Laboratory (EVL)
-        at the University of Illinois Chicago (UIC), in collaboration with MD
-        Anderson Cancer Center. Our multidisciplinary team combines expertise in
-        computer science, engineering, and oncology to build tools that can
-        collect and visualize taste perception data across multiple dimensions.
+        at the University of Illinois Chicago (UIC), under IRB Protocol
+        STUDY2025-0477.
       </p>
 
       <h3 style={{ marginTop: "2rem" }}>Research Team</h3>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-          gap: "2rem",
-          marginTop: "1.51rem",
-        }}
-      >
-        <div>
+      <div>
+        <div style={{ marginTop: "0.5rem" }}>
+          <strong>G. Elisabeta Marai</strong>
+          <br />
+          <em>Department of Computer Science</em>
+          <br />
+          University of Illinois Chicago
+          <br />
+          <em>Principal Investigator</em>
+          <br />
+        </div>
+        <div style={{ marginTop: "0.5rem" }}>
           <strong>Francesco Botto</strong>
           <br />
           <em>Department of Computer Science</em>
           <br />
           University of Illinois Chicago
           <br />
-        </div>
-        <div>
-          <strong>Guadalupe Canahuate</strong>
-          <br />
-          <em>Department of Electrical and Computer Engineering</em>
-          <br />
-          University of Iowa
-          <br />
-        </div>
-        <div>
-          <strong>Xinhua Zhang</strong>
-          <br />
-          <em>Department of Computer Science</em>
-          <br />
-          University of Illinois Chicago
-          <br />
-        </div>
-        <div>
-          <strong>C. David Fuller</strong>
-          <br />
-          <em>Department of Radiation Oncology</em>
-          <br />
-          University of Texas MD Anderson Cancer Center
-          <br />
-        </div>
-        <div>
-          <strong>G. Elisabeta Marai</strong>
-          <br />
-          <em>Department of Computer Science</em>
-          <br />
-          University of Illinois Chicago
+          <em>Research Assistant</em>
           <br />
         </div>
       </div>
@@ -83,6 +54,20 @@ function About() {
             patterns
           </li>
         </ul>
+      </div>
+
+      <div style={{ marginTop: "2rem" }}>
+        <h3>Pubblications</h3>
+        <p>
+          <a href="https://uofi.box.com/s/w7ad67yhdiv82oq5094zsosgo32166bb">
+            FlavorCharter:
+          </a>{" "}
+          Development of a Smartphone App for Quantifying Food Flavor, Francesco
+          Botto, Guadalupe Canhuate, Xinhua Zhang, C. David Fuller, G. Elisabeta
+          Marai, pp. 1-8, Workshop on Computational Gastronomy: Data Science for
+          Food and Cooking (CoGamy) at the International Conference on Data
+          Mining (ICDM) 2025
+        </p>
       </div>
 
       <div style={{ marginTop: "3rem" }}>

@@ -17,7 +17,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/participate" element={<Participate />} />
-            <Route path="/preliminary-analysis" element={<Analysis />} />
+            <Route path="/preliminary-results" element={<Analysis />} />
           </Routes>
         </main>
         <Footer />

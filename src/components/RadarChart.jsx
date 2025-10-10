@@ -14,7 +14,7 @@ export const COLORS = {
   Fatty: "#9575CD",
   Aromatic: "#BA68C8",
   Piquant: "#FF8A65",
-  Texture: "#999",
+  Texture: "#A1887F",
 };
 
 export default function RadarChart({
@@ -141,7 +141,7 @@ export default function RadarChart({
           <defs>
             <path id={arcId} d={arcPath} fill="none" />
           </defs>
-          <text fontSize="12" fill="#333">
+          <text fontSize="10" fill="#333">
             <textPath href={`#${arcId}`} startOffset="30%" textAnchor="middle">
               {label}
             </textPath>

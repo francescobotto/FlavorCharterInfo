@@ -13,15 +13,13 @@ function Participate() {
 
       <div style={{ marginTop: "2rem" }}>
         <h3>How It Works</h3>
-        <p
-          style={{ fontSize: "1.1rem", lineHeight: "1.6", marginTop: "0.5rem" }}
-        >
+        <p style={{ fontSize: "1rem", lineHeight: "1.6", marginTop: "0.5rem" }}>
           After downloading the app, you will be guided through a simple
           process:
         </p>
         <ol
           style={{
-            fontSize: "1.1rem",
+            fontSize: "1rem",
             lineHeight: "1.6",
           }}
         >
@@ -34,9 +32,7 @@ function Participate() {
 
       <div style={{ marginTop: "2rem" }}>
         <h3>Ready to Join?</h3>
-        <p
-          style={{ fontSize: "1.1rem", lineHeight: "1.6", marginTop: "0.5rem" }}
-        >
+        <p style={{ fontSize: "1rem", lineHeight: "1.6", marginTop: "0.5rem" }}>
           To join the study, download the app and start rating today! The app is
           available on the <strong>App Store for iOS users</strong>. For{" "}
           <strong>Android users</strong>, the app is currently in closed

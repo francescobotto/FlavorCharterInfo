@@ -23,31 +23,31 @@ function Home() {
         <h3> Why Taste Perception Matters</h3>
         <p style={{ fontSize: "1.1rem", marginTop: "0.5rem" }}>
           Taste perception plays a crucial role in nutrition and quality of
-          life. Around <strong>17%</strong> of the global population experiences
-          some form of taste disorder, including dysgeusia, and among cancer
-          patients undergoing chemotherapy or radiotherapy this number can reach{" "}
-          <strong>60–75%</strong>. These alterations can lead to reduced
-          appetite, malnutrition, and overall lower well-being. Establishing a
-          clear baseline of how healthy individuals perceive taste is essential
-          to understanding these changes and supporting clinical interventions.
+          life. Around{" "}
+          <a href="https://my.clevelandclinic.org/health/diseases/22047-dysgeusia">
+            <strong>17%</strong>
+          </a>{" "}
+          of the US population experiences some form of taste disorder,
+          including dysgeusia, and among Head and Neck Cancer patients
+          undergoing chemotherapy or radiotherapy this number can reach{" "}
+          <a href="https://www.thegreenjournal.com/article/S0167-8140(21)00023-2/fulltext">
+            <strong>51–100%</strong>
+          </a>
+          . These alterations can lead to reduced appetite, malnutrition, and
+          overall lower well-being. Establishing a clear baseline of how healthy
+          individuals perceive taste is essential to understanding these changes
+          and supporting clinical interventions.
         </p>
       </div>
-      <div
-        style={{
-          marginTop: "2rem",
-          display: "flex",
-          justifyContent: "flex-start",
-          alignItems: "center",
-          gap: "2rem",
-          flexWrap: "nowrap",
-        }}
-      >
-        <Progress current={28} target={100} />
-        <div>
+      <div className="row align-items-center" style={{ marginTop: "2rem" }}>
+        <div className="col-sm-auto mb-3 mb-sm-0">
+          <Progress current={28} target={100} />
+        </div>
+        <div className="col ">
           <p style={{ fontSize: "1rem", marginBottom: "0.5rem" }}>
-            So far, <strong>28 people</strong> have joined the study, but we are
-            aiming at <strong>100</strong> participants to complete our healthy
-            baseline.
+            So far, <strong>28</strong> people have joined the study, but we are
+            aiming at <strong>100</strong> participants by end of November 2025,
+            and a much larger total by the end of the project.
           </p>
           <p style={{ fontSize: "1rem", marginBottom: "1rem" }}>
             Every participant helps us build a more complete picture of how
