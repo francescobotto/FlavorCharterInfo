@@ -49,11 +49,11 @@ function Home() {
       </div>
       <div className="row align-items-center" style={{ marginTop: "2rem" }}>
         <div className="col-sm-auto mb-3 mb-sm-0">
-          <Progress current={28} target={100} />
+          <Progress current={54} target={100} />
         </div>
         <div className="col ">
           <p style={{ fontSize: "1rem", marginBottom: "0.5rem" }}>
-            So far, <strong>28</strong> people have joined the study, but we are
+            So far, <strong>54</strong> people have joined the study, but we are
             aiming at <strong>100</strong> participants by end of November 2025,
             and a much larger total by the end of the project.
           </p>
