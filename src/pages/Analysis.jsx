@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import RadarChart from "../components/RadarChart";
+// import RadarChart from "../components/RadarChart";
+import OutlierRadarChart from "../components/OutlierRadarChart";
+import { Data } from "../constants/data";
 
 function Analysis() {
   const exampleLabels = [
@@ -13,54 +15,6 @@ function Analysis() {
     "Aromatic",
     "Texture",
     "Piquant",
-  ];
-
-  const exampleData = [
-    {
-      name: "Strawberry",
-      data: [
-        { value: 3.0, stdDev: 0.82 },
-        { value: 2.38, stdDev: 1.19 },
-        { value: 0.23, stdDev: 0.44 },
-        { value: 0.38, stdDev: 1.12 },
-        { value: 0.08, stdDev: 0.28 },
-        { value: 0.0, stdDev: 0.0 },
-        { value: 0.69, stdDev: 0.75 },
-        { value: 2.23, stdDev: 1.42 },
-        { value: 1.85, stdDev: 1.28 },
-        { value: 0.0, stdDev: 0.0 },
-      ],
-    },
-    {
-      name: "Dark Chocolate",
-      data: [
-        { value: 1.42, stdDev: 1.0 },
-        { value: 0.5, stdDev: 1.17 },
-        { value: 0.33, stdDev: 0.65 },
-        { value: 3.5, stdDev: 1.09 },
-        { value: 0.08, stdDev: 0.29 },
-        { value: 1.58, stdDev: 1.16 },
-        { value: 1.0, stdDev: 1.65 },
-        { value: 1.67, stdDev: 0.98 },
-        { value: 2.17, stdDev: 1.4 },
-        { value: 0.0, stdDev: 0.0 },
-      ],
-    },
-    {
-      name: "Almonds",
-      data: [
-        { value: 0.75, stdDev: 1.22 },
-        { value: 0.0, stdDev: 0.0 },
-        { value: 0.83, stdDev: 1.11 },
-        { value: 0.83, stdDev: 1.59 },
-        { value: 0.17, stdDev: 0.39 },
-        { value: 2.17, stdDev: 1.47 },
-        { value: 0.42, stdDev: 0.9 },
-        { value: 0.5, stdDev: 0.67 },
-        { value: 4.25, stdDev: 1.48 },
-        { value: 0.0, stdDev: 0.0 },
-      ],
-    },
   ];
 
   return (
@@ -93,7 +47,7 @@ function Analysis() {
           justifyContent: "center",
         }}
       >
-        {exampleData.map((item) => {
+        {Data.map((item) => {
           // State for each item by name
           const [showTable, setShowTable] = useState(false);
           return (
@@ -106,8 +60,13 @@ function Analysis() {
               }}
             >
               <h4>{item.name}</h4>
-              <RadarChart data={item.data} labels={exampleLabels} />
-              <button
+              {/* <RadarChart data={item.data} labels={exampleLabels} /> */}
+              <OutlierRadarChart
+                outliers={item.outliers}
+                distribution={item.distribution}
+                meanValues={item.meanValues}
+              />
+              {/* <button
                 onClick={() => setShowTable((prev) => !prev)}
                 style={{
                   marginTop: "1rem",
@@ -156,7 +115,7 @@ function Analysis() {
                     ))}
                   </tbody>
                 </table>
-              )}
+              )} */}
             </div>
           );
         })}

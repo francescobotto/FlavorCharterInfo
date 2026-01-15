@@ -49,13 +49,13 @@ function Home() {
       </div>
       <div className="row align-items-center" style={{ marginTop: "2rem" }}>
         <div className="col-sm-auto mb-3 mb-sm-0">
-          <Progress current={54} target={100} />
+          <Progress current={100} target={100} />
         </div>
         <div className="col ">
           <p style={{ fontSize: "1rem", marginBottom: "0.5rem" }}>
-            So far, <strong>54</strong> people have joined the study, but we are
-            aiming at <strong>100</strong> participants by end of November 2025,
-            and a much larger total by the end of the project.
+            So far, <strong>100</strong> people have completed the study. We are
+            now aiming to recruit <strong>more</strong> participants to further
+            strengthen the reliability and robustness of the taste profiles.
           </p>
           <p style={{ fontSize: "1rem", marginBottom: "1rem" }}>
             Every participant helps us build a more complete picture of how
