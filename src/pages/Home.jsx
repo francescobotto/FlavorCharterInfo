@@ -53,9 +53,34 @@ function Home() {
         </div>
         <div className="col ">
           <p style={{ fontSize: "1rem", marginBottom: "0.5rem" }}>
-            So far, <strong>100</strong> people have completed the study. We are
-            now aiming to recruit <strong>more</strong> participants to further
-            strengthen the reliability and robustness of the taste profiles.
+            So far, <strong>100</strong> people have enrolled in the study, and
+            we reached this first milestone by{" "}
+            <strong>January 15th 2026</strong>
+            <br />
+            Our study includes diverse ethnic and national backgrounds, with
+            South Asian (41%) and Non-Hispanic White (32%) groups most
+            represented.
+            <br />
+            Participants are predominantly young adults aged 18–34 (68%),
+            providing valuable insight into how young people perceive flavor.
+            {/* <br />
+            Dietary habits are varied, with balanced (39%), Mediterranean (21%),
+            and vegetarian (19%) diets being the most common, and participants
+            show a wide range of cultural influences, including strong Indian
+            and Italian representation in preferred cuisines. */}
+          </p>
+        </div>
+      </div>
+
+      <div className="row align-items-center" style={{ marginTop: "2rem" }}>
+        <div className="col-sm-auto mb-3 mb-sm-0">
+          <Progress current={0} target={100} />
+        </div>
+        <div className="col ">
+          <p style={{ fontSize: "1rem", marginBottom: "0.5rem" }}>
+            We are trilled to enroll the next <strong>100</strong> participants
+            by <strong>March 2026</strong> to further strengthen the reliability
+            and robustness of the taste profiles.
           </p>
           <p style={{ fontSize: "1rem", marginBottom: "1rem" }}>
             Every participant helps us build a more complete picture of how

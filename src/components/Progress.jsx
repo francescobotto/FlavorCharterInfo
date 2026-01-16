@@ -36,7 +36,9 @@ function Progress({ current = 31, target = 100, size = 120 }) {
     g.append("path").attr("d", bgArc).attr("fill", "#e0e0e0");
 
     // Progress arc
-    g.append("path").attr("d", arc).attr("fill", "#D50032");
+    g.append("path")
+      .attr("d", arc)
+      .attr("fill", current == target ? "#008000" : "#D50032");
 
     // Center text
     g.append("text")
