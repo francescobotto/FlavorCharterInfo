@@ -78,7 +78,7 @@ function Home() {
         </div>
         <div className="col ">
           <p style={{ fontSize: "1rem", marginBottom: "0.5rem" }}>
-            We are trilled to enroll the next <strong>100</strong> participants
+            We are thrilled to enroll the next <strong>100</strong> participants
             by <strong>March 2026</strong> to further strengthen the reliability
             and robustness of the taste profiles.
           </p>
