@@ -6,12 +6,7 @@ import { FlavorOrder, PropertiesMap } from "../constants/flavors";
 const MAX_CHART_SIZE = 230;
 const extraMargin = 20;
 
-export default function OutlierRadarChart({
-  outliers = {},
-  showOutliers = false,
-  distribution = {},
-  meanValues = {},
-}) {
+export default function OutlierRadarChart({ outliers = {}, showOutliers = false, distribution = {}, meanValues = {} }) {
   const keys = FlavorOrder;
 
   const labels = FlavorOrder;
@@ -42,12 +37,7 @@ export default function OutlierRadarChart({
     .style("z-index", 1000);
 
   function buildArcPath(startAngle, endAngle, innerR, outerR) {
-    return d3Shape
-      .arc()
-      .innerRadius(innerR)
-      .outerRadius(outerR)
-      .startAngle(startAngle)
-      .endAngle(endAngle)();
+    return d3Shape.arc().innerRadius(innerR).outerRadius(outerR).startAngle(startAngle).endAngle(endAngle)();
   }
 
   function renderDistributionArcs() {
@@ -55,14 +45,9 @@ export default function OutlierRadarChart({
       const dist = distribution[PropertiesMap[key]] || {};
       const outLevels = outliers[PropertiesMap[key]] || [];
 
-      const numericLevels = Object.entries(dist).filter(
-        ([level]) => !isNaN(Number(level))
-      );
+      const numericLevels = Object.entries(dist).filter(([level]) => !isNaN(Number(level)));
 
-      const total = numericLevels.reduce(
-        (sum, [, entry]) => sum + (entry?.count ?? 0),
-        0
-      );
+      const total = numericLevels.reduce((sum, [, entry]) => sum + (entry?.count ?? 0), 0);
 
       const angleStart = i * sliceAngle + wedgeGap / 2;
       const angleEnd = (i + 1) * sliceAngle - wedgeGap / 2;
@@ -90,20 +75,16 @@ export default function OutlierRadarChart({
             onMouseOver={() => {
               const mean = meanValues[PropertiesMap[key]] ?? 0;
 
-              const votesLines = numericLevels
-                .map(([lvl, ent]) => `${lvl}: ${ent.count ?? 0} votes`)
-                .join("<br>");
+              const votesLines = numericLevels.map(([lvl, ent]) => `${lvl}: ${ent.count ?? 0} votes`).join("<br>");
 
               tooltip3.style("visibility", "visible").html(
                 `<strong>${key}</strong><br>
            Mean: ${mean.toFixed(2)}<br>
-           ${votesLines}`
+           ${votesLines}`,
               );
             }}
             onMouseMove={(event) => {
-              tooltip3
-                .style("left", event.pageX + 12 + "px")
-                .style("top", event.pageY + 12 + "px");
+              tooltip3.style("left", event.pageX + 12 + "px").style("top", event.pageY + 12 + "px");
             }}
             onMouseLeave={() => {
               tooltip3.style("visibility", "hidden");
@@ -123,12 +104,7 @@ export default function OutlierRadarChart({
       const angleStart = (i + 1) * sliceAngle - wedgeGap - angleOffset;
       const angleEnd = i * sliceAngle + wedgeGap;
 
-      const arcPath = buildArcPath(
-        angleEnd - 0.1,
-        angleStart + 0.1,
-        labelRadius,
-        labelRadius
-      );
+      const arcPath = buildArcPath(angleEnd - 0.1, angleStart + 0.1, labelRadius, labelRadius);
       const arcId = `labelArc-${i}`;
 
       return (
@@ -155,22 +131,9 @@ export default function OutlierRadarChart({
       const angleStart = i * sliceAngle;
       const angleEnd = (i + 1) * sliceAngle;
 
-      const arcPath = d3Shape
-        .arc()
-        .innerRadius(r)
-        .outerRadius(r)
-        .startAngle(angleStart)
-        .endAngle(angleEnd)();
+      const arcPath = d3Shape.arc().innerRadius(r).outerRadius(r).startAngle(angleStart).endAngle(angleEnd)();
 
-      pathElements.push(
-        <path
-          key={`arc-${i}`}
-          d={arcPath}
-          stroke="red"
-          strokeWidth={2}
-          fill="none"
-        />
-      );
+      pathElements.push(<path key={`arc-${i}`} d={arcPath} stroke="red" strokeWidth={2} fill="none" />);
       // Linea verticale che collega la fine di questo arco all'inizio del successivo
       const nextKey = keys[(i + 1) % keys.length];
       const nextMean = (meanValues[PropertiesMap[nextKey]] ?? 0) + 1;
@@ -186,30 +149,18 @@ export default function OutlierRadarChart({
       const x2 = rNext * Math.cos(dividerAngle);
       const y2 = rNext * Math.sin(dividerAngle);
 
-      pathElements.push(
-        <line
-          key={`divider-${i}`}
-          x1={x1}
-          y1={y1}
-          x2={x2}
-          y2={y2}
-          stroke="red"
-          strokeWidth={2}
-        />
-      );
+      pathElements.push(<line key={`divider-${i}`} x1={x1} y1={y1} x2={x2} y2={y2} stroke="red" strokeWidth={2} />);
     });
 
     return <g>{pathElements}</g>;
   }
 
   return (
-    <div style={{ textAlign: "center", padding: "0px" }}>
+    <div style={{ textAlign: "center", padding: "0px", backgroundColor: "#F8F9FA" }}>
       <svg
         width={size + extraMargin * 2}
         height={size + extraMargin * 2}
-        viewBox={`-${radius + extraMargin} -${radius + extraMargin} ${
-          size + extraMargin * 2
-        } ${size + extraMargin * 2}`}
+        viewBox={`-${radius + extraMargin} -${radius + extraMargin} ${size + extraMargin * 2} ${size + extraMargin * 2}`}
       >
         {renderDistributionArcs()}
         {Array.from({ length: levels }, (_, idx) => {
@@ -220,15 +171,7 @@ export default function OutlierRadarChart({
             .outerRadius(r)
             .startAngle(0)
             .endAngle(2 * Math.PI)();
-          return (
-            <path
-              key={`grid-${idx}`}
-              d={circlePath}
-              stroke="#999"
-              strokeOpacity={0.2}
-              fill="none"
-            />
-          );
+          return <path key={`grid-${idx}`} d={circlePath} stroke="#999" strokeOpacity={0.2} fill="none" />;
         })}
         {renderOutline()}
         {renderCurvedLabels()}
