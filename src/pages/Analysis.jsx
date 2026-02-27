@@ -137,7 +137,7 @@ function Analysis() {
           most humans perceive as having high flavor variability. Nevertheless, the measurements reported by 52 subjects over a range of strawberry varieties,
           from Oishii strawberries (a pesticide-free, non-GMO strawberry variety known for its intense sweetness, creamy texture, and aromatic, floral flavor)
           to a common supermarket, non-organic strawberry, are remarkably well-conserved. The most important flavor components are:{" "}
-          <b>sweetness, sourness, aroma, and texture</b>
+          <b>sweetness, sourness, aroma, and texture.</b>
         </p>
       </div>
 
