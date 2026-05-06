@@ -54,10 +54,13 @@ export default function About() {
       <div className="mt-12">
         <h2 className="text-[clamp(24px,2vw,28px)] font-semibold mt-8">Collaborators</h2>
         <div className="flex flex-wrap gap-8 justify-center items-center mt-6">
-          <img src="%BASE_URL%uic_logo.png" alt="UIC" className="h-[60px] object-contain" />
-          <img src="%BASE_URL%evl_logo.png" alt="EVL" className="h-[60px] object-contain" />
-          <img src="%BASE_URL%md_anderson_cancer_center_logo.png" alt="MD Anderson Cancer Center" className="h-[60px] object-contain" />
-          <img src="%BASE_URL%iowa_logo.png" alt="University of Iowa" className="h-[60px] object-contain" />
+          <img src={import.meta.env.BASE_URL + "uic_logo.png"} alt="UIC" className="h-[60px] object-contain" />
+
+          <img src={import.meta.env.BASE_URL + "evl_logo.png"} alt="EVL" className="h-[60px] object-contain" />
+
+          <img src={import.meta.env.BASE_URL + "md_anderson_cancer_center_logo.png"} alt="MD Anderson Cancer Center" className="h-[60px] object-contain" />
+
+          <img src={import.meta.env.BASE_URL + "iowa_logo.png"} alt="University of Iowa" className="h-[60px] object-contain" />
         </div>
       </div>
     </div>
