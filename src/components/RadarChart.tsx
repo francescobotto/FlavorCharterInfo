@@ -2,9 +2,10 @@ import React from "react";
 import * as d3 from "d3";
 import * as d3Shape from "d3-shape";
 
-const MAX_CHART_SIZE = 200;
-const extraMargin = 30;
-export const COLORS = {
+export const MAX_CHART_SIZE = 200;
+const EXTRA_MARGIN = 30;
+
+export const COLORS: Record<string, string> = {
   Sweet: "#FF7043",
   Sour: "#FFA726",
   Salty: "#ecc74e",
@@ -17,18 +18,23 @@ export const COLORS = {
   Texture: "#A1887F",
 };
 
-export default function RadarChart({
-  data = [], // es. [2, 3, 4, ...]
-  labels = [], // es. ["Sweet", "Sour", ...]
-  levels = 5,
-  maxValue = 5,
-}) {
+interface TasteDatum {
+  value: number;
+  stdDev?: number;
+}
+
+interface RadarChartProps {
+  data: TasteDatum[];
+  labels: string[];
+  levels?: number;
+  maxValue?: number;
+}
+
+export default function RadarChart({ data = [], labels = [], levels = 5, maxValue = 5 }: RadarChartProps) {
   const size = MAX_CHART_SIZE;
   const radius = size / 2;
-  const totalSize = size + extraMargin * 2;
-  const viewBox = `-${radius + extraMargin} -${
-    radius + extraMargin
-  } ${totalSize} ${totalSize}`;
+  const totalSize = size + EXTRA_MARGIN * 2;
+  const viewBox = `-${radius + EXTRA_MARGIN} -${radius + EXTRA_MARGIN} ${totalSize} ${totalSize}`;
 
   const totalDimensions = labels.length;
   const sliceAngle = totalDimensions ? (2 * Math.PI) / totalDimensions : 0;
@@ -36,16 +42,10 @@ export default function RadarChart({
 
   const scaleRadius = d3.scaleLinear().domain([0, maxValue]).range([0, radius]);
 
-  function buildArcPath(startAngle, endAngle, innerR, outerR) {
-    return d3Shape
-      .arc()
-      .innerRadius(innerR)
-      .outerRadius(outerR)
-      .startAngle(startAngle)
-      .endAngle(endAngle)();
-  }
+  const buildArcPath = (startAngle: number, endAngle: number, innerR: number, outerR: number) => {
+    return d3Shape.arc().innerRadius(innerR).outerRadius(outerR).startAngle(startAngle).endAngle(endAngle)();
+  };
 
-  // Tooltip div
   const tooltip = d3
     .select("body")
     .append("div")
@@ -62,31 +62,25 @@ export default function RadarChart({
     .style("box-shadow", "0 2px 6px rgba(0, 0, 0, 0.15)")
     .style("z-index", 1000);
 
-  function renderDimensionArcs() {
+  const renderDimensionArcs = () => {
     return data.flatMap((entry, i) => {
-      const value = entry?.value;
-      const stdDev = entry?.stdDev;
-      if (value === null || value === undefined) return null;
+      const value = entry?.value ?? 0;
+      const stdDev = entry?.stdDev ?? 0;
       const roundedValue = Math.round(value);
+
       const angleStart = i * sliceAngle + wedgeGap / 2;
       const angleEnd = (i + 1) * sliceAngle - wedgeGap / 2;
       const dimensionRadius = scaleRadius(roundedValue);
       const fillColor = COLORS[labels[i]] || "#999";
 
       const arcs = [];
-      const numFullArcs = roundedValue;
-      for (let levelIndex = 0; levelIndex < numFullArcs; levelIndex++) {
+      for (let levelIndex = 0; levelIndex < roundedValue; levelIndex++) {
         const ringStart = (levelIndex / levels) * radius;
         const ringEnd = ((levelIndex + 1) / levels) * radius;
         const clampedEnd = Math.min(ringEnd, dimensionRadius);
 
         if (clampedEnd > ringStart) {
-          const pathData = buildArcPath(
-            angleStart,
-            angleEnd,
-            ringStart,
-            clampedEnd
-          );
+          const pathData = buildArcPath(angleStart, angleEnd, ringStart, clampedEnd);
           arcs.push(
             <path
               key={`arc-${i}-${levelIndex}`}
@@ -95,45 +89,30 @@ export default function RadarChart({
               fillOpacity={0.8}
               stroke="#fff"
               strokeWidth={1}
-              onMouseEnter={(event) => {
-                tooltip
-                  .style("visibility", "visible")
-                  .html(
-                    `${labels[i]}: ${value.toFixed(1)} ± ${
-                      stdDev?.toFixed(1) ?? 0
-                    }`
-                  );
+              onMouseEnter={() => {
+                tooltip.style("visibility", "visible").html(`${labels[i]}: ${value.toFixed(1)} ± ${stdDev?.toFixed(1) ?? 0}`);
               }}
               onMouseMove={(event) => {
-                tooltip
-                  .style("top", `${event.pageY + 10}px`)
-                  .style("left", `${event.pageX + 10}px`);
+                tooltip.style("top", `${event.pageY + 10}px`).style("left", `${event.pageX + 10}px`);
               }}
               onMouseLeave={() => {
                 tooltip.style("visibility", "hidden");
               }}
-            />
+            />,
           );
         }
       }
+
       return arcs;
     });
-  }
+  };
 
-  function renderCurvedLabels() {
-    const labelRadius = radius + 5;
-
+  const renderCurvedLabels = () => {
     return labels.map((label, i) => {
       const angleStart = (i + 1) * sliceAngle - wedgeGap;
       const angleEnd = i * sliceAngle + wedgeGap;
       const labelRadius = radius + 5;
-
-      const arcPath = buildArcPath(
-        angleEnd,
-        angleStart,
-        labelRadius,
-        labelRadius
-      );
+      const arcPath = buildArcPath(angleEnd, angleStart, labelRadius, labelRadius);
       const arcId = `labelArc-${i}`;
 
       return (
@@ -141,7 +120,7 @@ export default function RadarChart({
           <defs>
             <path id={arcId} d={arcPath} fill="none" />
           </defs>
-          <text fontSize="10" fill="#333">
+          <text fontSize={10} fill="#333">
             <textPath href={`#${arcId}`} startOffset="30%" textAnchor="middle">
               {label}
             </textPath>
@@ -149,10 +128,10 @@ export default function RadarChart({
         </React.Fragment>
       );
     });
-  }
+  };
 
   return (
-    <div style={{ textAlign: "center", padding: "10px" }}>
+    <div className="flex justify-center items-center p-2.5">
       <svg width={totalSize} height={totalSize} viewBox={viewBox}>
         {Array.from({ length: levels }, (_, idx) => {
           const r = ((idx + 1) / levels) * radius;
@@ -162,15 +141,7 @@ export default function RadarChart({
             .outerRadius(r)
             .startAngle(0)
             .endAngle(2 * Math.PI)();
-          return (
-            <path
-              key={`grid-${idx}`}
-              d={circlePath}
-              stroke="#999"
-              strokeOpacity={0.2}
-              fill="none"
-            />
-          );
+          return <path key={`grid-${idx}`} d={circlePath} stroke="#999" strokeOpacity={0.2} fill="none" />;
         })}
 
         {renderDimensionArcs()}
