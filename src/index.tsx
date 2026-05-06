@@ -8,16 +8,14 @@ import "./index.css";
 
 const rootElement = document.getElementById("root");
 if (!rootElement) {
-  console.error(
-    "Root element not found. Ensure there is an element with id 'root' in your HTML."
-  );
+  console.error("Root element not found. Ensure there is an element with id 'root' in your HTML.");
   throw new Error("Application cannot be rendered without root element.");
 }
 
 createRoot(rootElement).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/FlavorCharterInfo">
       <App />
     </BrowserRouter>
-  </StrictMode>
+  </StrictMode>,
 );
