@@ -17,7 +17,7 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center">
-            <img src="/logo_adaptive.png" alt="Logo" className="h-10 mr-2" />
+            <img src="%BASE_URL%logo_adaptive.png" alt="Logo" className="h-10 mr-2" />
             <span className="text-xl text-gray-800 leading-[40px]">Flavor Charter</span>
           </Link>
 
